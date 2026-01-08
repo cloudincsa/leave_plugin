@@ -726,7 +726,6 @@ class Leave_Manager_Admin_AJAX_Handler {
             SUM(CASE WHEN status = 'approved' THEN DATEDIFF(end_date, start_date) + 1 ELSE 0 END) as days_taken
             FROM $table $where GROUP BY leave_type", ARRAY_A );
 
-        error_log('Leave Manager Report: Query results: ' . print_r($results, true));
         wp_send_json_success( array( 'data' => $results ) );
     }
 
@@ -785,7 +784,6 @@ class Leave_Manager_Admin_AJAX_Handler {
             $where
             GROUP BY u.user_id, u.first_name, u.last_name, u.department", ARRAY_A );
 
-        error_log('Leave Manager Report: Query results: ' . print_r($results, true));
         wp_send_json_success( array( 'data' => $results ) );
     }
 
@@ -843,7 +841,6 @@ class Leave_Manager_Admin_AJAX_Handler {
             $where
             GROUP BY u.department", ARRAY_A );
 
-        error_log('Leave Manager Report: Query results: ' . print_r($results, true));
         wp_send_json_success( array( 'data' => $results ) );
     }
 

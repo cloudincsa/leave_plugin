@@ -196,24 +196,18 @@ class Leave_Manager_Frontend_Pages {
 		global $wp;
 		
 		// Debug logging
-		error_log('handle_page_routing called - request: ' . ($wp->request ?? 'NULL'));
-		error_log('Cookie present: ' . (isset($_COOKIE['leave_manager_session']) ? 'YES' : 'NO'));
 		
 		// Check if this is a leave management page
 		if ( strpos( $wp->request, 'leave-management' ) === 0 ) {
-			error_log('Is leave-management page');
 			
 			// Require user to be logged in via custom auth
 			$is_logged_in = Leave_Manager_Custom_Auth::is_logged_in();
-			error_log('Custom auth is_logged_in: ' . ($is_logged_in ? 'YES' : 'NO'));
 			
 			if ( ! $is_logged_in ) {
-				error_log('Redirecting to custom login page');
 				// Redirect to custom login page
 				wp_redirect( home_url( '/wp-content/plugins/leave-manager/login.php' ) );
 				exit;
 			}
-			error_log('User is logged in, loading template');
 			// Load custom template if needed
 			$this->load_custom_template();
 		}

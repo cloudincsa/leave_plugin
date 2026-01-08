@@ -21,11 +21,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-// Debug logging
-ini_set('log_errors', 1);
-ini_set('error_log', '/tmp/leave_manager_debug.log');
-error_log('Leave Manager plugin loaded at ' . date('Y-m-d H:i:s'));
-
 // Define plugin constants
 define( 'LEAVE_MANAGER_PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'LEAVE_MANAGER_PLUGIN_URL', set_url_scheme( plugin_dir_url( __FILE__ ) ) );
@@ -91,12 +86,17 @@ require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/class-admin-ajax-handler.php';
 require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/class-complete-ajax-handler.php';
 
 // Load new AJAX handlers for features
-require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-leave-request-handler.php';
-require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-leave-approval-handler.php';
 require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-holiday-api-handler.php';
-require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-public-holidays-handler.php';
-require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-leave-type-day-selector-handler.php';
-require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-calendar-events-handler.php';
+
+// V2 handlers using new architecture (replaces legacy handlers)
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-leave-request-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-leave-approval-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-calendar-events-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-dashboard-stats-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-public-holidays-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-leave-type-day-selector-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-staff-handler-v2.php';
+require_once LEAVE_MANAGER_PLUGIN_DIR . 'includes/handlers/class-department-handler-v2.php';
 
 // Instantiate AJAX handlers to register their actions
 new Leave_Manager_Report_Ajax_Handler();
@@ -182,7 +182,7 @@ function leave_manager() {
 // Add custom dashboard shortcode
 add_shortcode( 'leave_manager_dashboard_custom', function() {
     ob_start();
-    include LEAVE_MANAGER_PLUGIN_DIR . 'frontend/pages/dashboard-new.php';
+    include LEAVE_MANAGER_PLUGIN_DIR . 'frontend/pages/dashboard.php';
     return ob_get_clean();
 });
 

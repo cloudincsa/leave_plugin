@@ -44,3 +44,4 @@ phpunit.xml
 
 # Coverage reports
 /coverage/
+.removed_files/

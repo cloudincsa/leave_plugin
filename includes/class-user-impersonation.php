@@ -20,7 +20,7 @@ class Leave_Manager_User_Impersonation {
 	public function __construct() {
 		// Ensure sessions are started
 		if ( ! session_id() ) {
-			session_start();
+			if (session_status() === PHP_SESSION_NONE && !headers_sent()) { session_start(); }
 		}
 
 		// Add admin bar menu for user switching
@@ -246,7 +246,7 @@ class Leave_Manager_User_Impersonation {
 	 */
 	public function get_impersonated_user_id() {
 		if ( ! session_id() ) {
-			session_start();
+			if (session_status() === PHP_SESSION_NONE && !headers_sent()) { session_start(); }
 		}
 
 		return isset( $_SESSION['impersonated_user_id'] ) ? intval( $_SESSION['impersonated_user_id'] ) : null;
@@ -295,7 +295,7 @@ class Leave_Manager_User_Impersonation {
 	 */
 	public static function get_impersonated_user() {
 		if ( ! session_id() ) {
-			session_start();
+			if (session_status() === PHP_SESSION_NONE && !headers_sent()) { session_start(); }
 		}
 
 		return isset( $_SESSION['impersonated_user_id'] ) ? intval( $_SESSION['impersonated_user_id'] ) : null;
