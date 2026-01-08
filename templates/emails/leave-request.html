@@ -1,0 +1,66 @@
+<subject>New Leave Request Submitted - {{full_name}}</subject>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Leave Request</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #333; background-color: #f5f5f5; margin: 0; padding: 0; }
+        .container { max-width: 600px; margin: 20px auto; background-color: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { margin: 0; font-size: 28px; font-weight: 600; }
+        .content { padding: 40px; }
+        .greeting { font-size: 18px; font-weight: 600; margin-bottom: 20px; color: #333; }
+        .body-text { font-size: 14px; line-height: 1.8; margin-bottom: 20px; color: #555; }
+        .button { display: inline-block; background-color: #ffc107; color: #333; padding: 12px 30px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 20px 0; }
+        .info-box { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .info-box h3 { margin-top: 0; color: #856404; font-size: 14px; }
+        .details-table { width: 100%; border-collapse: collapse; margin: 20px 0; background-color: #f9f9f9; }
+        .details-table td { padding: 10px; border-bottom: 1px solid #eee; font-size: 13px; }
+        .details-table td:first-child { font-weight: 600; width: 40%; color: #667eea; }
+        .footer { background-color: #f9f9f9; padding: 20px; text-align: center; border-top: 1px solid #eee; font-size: 12px; color: #999; }
+        .footer a { color: #667eea; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>New Leave Request</h1>
+        </div>
+        <div class="content">
+            <div class="greeting">Hi HR Team,</div>
+            <div class="body-text">
+                A new leave request has been submitted and requires your attention.
+            </div>
+            <table class="details-table">
+                <tr><td>Employee:</td><td>{{full_name}}</td></tr>
+                <tr><td>Email:</td><td>{{email}}</td></tr>
+                <tr><td>Department:</td><td>{{department}}</td></tr>
+                <tr><td>Leave Type:</td><td>{{leave_type}}</td></tr>
+                <tr><td>Start Date:</td><td>{{start_date}}</td></tr>
+                <tr><td>End Date:</td><td>{{end_date}}</td></tr>
+                <tr><td>Reason:</td><td>{{reason}}</td></tr>
+            </table>
+            <div style="text-align: center;">
+                <a href="{{organization_website}}/leave-management/leave-requests" class="button">Review Request</a>
+            </div>
+            <div class="info-box">
+                <h3>Action Required:</h3>
+                <p style="margin: 0;">Please review this leave request and approve or reject it as needed.</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p><strong>{{organization_name}}</strong></p>
+            <p style="margin: 10px 0 0 0;">
+                <a href="{{organization_website}}">Website</a> | 
+                <a href="mailto:{{organization_email}}">Contact Us</a>
+            </p>
+            <p style="margin: 10px 0 0 0; color: #ccc;">
+                © 2025 {{organization_name}}. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

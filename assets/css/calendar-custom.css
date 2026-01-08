@@ -1,0 +1,331 @@
+/**
+ * FullCalendar Custom Styling
+ * 
+ * Customizes FullCalendar to match Leave Manager design system
+ */
+
+:root {
+	--fc-border-color: #e0e0e0;
+	--fc-button-bg-color: #4A5FFF;
+	--fc-button-border-color: #3A4FE8;
+	--fc-button-hover-bg-color: #3A4FE8;
+	--fc-button-hover-border-color: #3A4FE8;
+	--fc-button-active-bg-color: #3A4FE8;
+	--fc-button-active-border-color: #3A4FE8;
+	--fc-button-text-color: #ffffff;
+	--fc-daygrid-event-dot-width: 5px;
+	--fc-event-bg-color: #4A5FFF;
+	--fc-event-border-color: #3A4FE8;
+	--fc-event-text-color: #ffffff;
+	--fc-highlight-color: rgba(74, 95, 255, 0.1);
+	--fc-list-event-hover-bg-color: rgba(74, 95, 255, 0.05);
+	--fc-neutral-bg-color: #f5f5f5;
+	--fc-neutral-text-color: #333333;
+	--fc-page-bg-color: #ffffff;
+	--fc-today-bg-color: rgba(74, 95, 255, 0.1);
+}
+
+/* Calendar Container */
+.fc {
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+	font-size: 14px;
+	color: #333333333;
+}
+
+/* Header Styling */
+.fc .fc-toolbar {
+	padding: 16px 0;
+	margin-bottom: 16px;
+}
+
+.fc .fc-toolbar-title {
+	font-size: 24px;
+	font-weight: 600;
+	color: #333333333;
+}
+
+/* Button Styling */
+.fc .fc-button-primary {
+	background-color: #4A5FFF;
+	border-color: #ff9800;
+	color: #ffffff;
+	font-weight: 500;
+	padding: 8px 12px;
+	border-radius: 6px;
+	transition: all 200ms ease-in-out;
+}
+
+.fc .fc-button-primary:hover {
+		background-color: #3A4FE8;
+		border-color: #3A4FE8;
+		box-shadow: 0 4px 8px rgba(58, 79, 232, 0.2);
+	}
+
+	.fc .fc-button-primary:not(:disabled).fc-button-active {
+		background-color: #3A4FE8;
+		border-color: #3A4FE8;
+	}
+
+.fc .fc-button-primary:disabled {
+	background-color: #e0e0e0;
+	border-color: #bdbdbd;
+	color: #999999999;
+}
+
+/* Day Grid Styling */
+.fc .fc-daygrid-day {
+	background-color: #ffffff;
+	border-color: #e0e0e0;
+	transition: background-color 200ms ease-in-out;
+}
+
+.fc .fc-daygrid-day:hover {
+	background-color: #f5f5f5;
+}
+
+.fc .fc-daygrid-day.fc-day-other {
+	background-color: #f5f5f5;
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+	background-color: rgba(255, 193, 7, 0.1);
+}
+
+.fc .fc-daygrid-day-number {
+	padding: 8px;
+	font-weight: 500;
+	color: #333333333;
+}
+
+.fc .fc-daygrid-day.fc-day-today .fc-daygrid-day-number {
+	color: #ff9800;
+	font-weight: 600;
+}
+
+/* Event Styling */
+.fc .fc-daygrid-event {
+	margin-top: 2px;
+	border-radius: 4px;
+	border: none;
+	padding: 2px 4px;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.fc .fc-event {
+	border-radius: 6px;
+	border: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: all 200ms ease-in-out;
+}
+
+.fc .fc-event:hover {
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+	transform: translateY(-2px);
+}
+
+/* Leave Type Colors */
+.fc .leave-annual {
+	background-color: #4A5FFF !important;
+	border-color: #ff9800 !important;
+}
+
+.fc .leave-sick {
+	background-color: #f44336 !important;
+	border-color: #f44336 !important;
+}
+
+.fc .leave-other {
+	background-color: #667EEA !important;
+	border-color: #5e35b1 !important;
+}
+
+/* Status Colors */
+.fc .leave-approved {
+	opacity: 1;
+}
+
+.fc .leave-pending {
+	opacity: 0.7;
+	border-style: dashed !important;
+}
+
+.fc .leave-rejected {
+	opacity: 0.5;
+	text-decoration: line-through;
+}
+
+/* Week View Styling */
+.fc .fc-timegrid-slot {
+	height: 3em;
+}
+
+.fc .fc-col-time-text {
+	vertical-align: middle;
+	font-size: 12px;
+	color: #999999999;
+}
+
+.fc .fc-timegrid-event {
+	border-radius: 6px;
+	border: none;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* List View Styling */
+.fc .fc-list-event {
+	border-left: 4px solid #4A5FFF;
+	padding: 12px;
+	transition: all 200ms ease-in-out;
+}
+
+.fc .fc-list-event:hover {
+	background-color: rgba(255, 193, 7, 0.05);
+	border-left-color: #ff9800;
+}
+
+.fc .fc-list-event-title {
+	font-weight: 600;
+	color: #333333333;
+}
+
+.fc .fc-list-event-time {
+	font-size: 12px;
+	color: #999999999;
+}
+
+/* Popover/Tooltip Styling */
+.fc .fc-popover {
+	background-color: #ffffff;
+	border: 1px solid #e0e0e0;
+	border-radius: 8px;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.fc .fc-popover-header {
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 12px;
+	border-radius: 8px 8px 0 0;
+}
+
+/* More Link Styling */
+.fc .fc-daygrid-day-frame .fc-daygrid-day-events .fc-daygrid-event-harness:last-child .fc-more-link {
+	background-color: #4A5FFF;
+	color: #ffffff;
+	border-radius: 4px;
+	padding: 4px 8px;
+	font-size: 12px;
+	font-weight: 500;
+	transition: all 200ms ease-in-out;
+}
+
+.fc .fc-daygrid-day-frame .fc-daygrid-day-events .fc-daygrid-event-harness:last-child .fc-more-link:hover {
+	background-color: #ff9800;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.fc .fc-toolbar {
+		flex-direction: column;
+		gap: 12px;
+	}
+
+	.fc .fc-toolbar-title {
+		font-size: 20px;
+	}
+
+	.fc .fc-button-group {
+		flex-wrap: wrap;
+	}
+
+	.fc .fc-button {
+		font-size: 12px;
+		padding: 6px 10px;
+	}
+
+	.fc .fc-daygrid-day-number {
+		font-size: 12px;
+		padding: 6px;
+	}
+
+	.fc .fc-daygrid-event {
+		font-size: 11px;
+	}
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+	:root {
+		--fc-border-color: #444444;
+		--fc-neutral-bg-color: #2a2a2a;
+		--fc-neutral-text-color: #e0e0e0;
+		--fc-page-bg-color: #1a1a1a;
+		--fc-today-bg-color: rgba(255, 193, 7, 0.15);
+	}
+
+	.fc {
+		color: #e0e0e0;
+	}
+
+	.fc .fc-toolbar-title {
+		color: #e0e0e0;
+	}
+
+	.fc .fc-daygrid-day {
+		background-color: #1a1a1a;
+	}
+
+	.fc .fc-daygrid-day.fc-day-other {
+		background-color: #222222;
+	}
+
+	.fc .fc-daygrid-day-number {
+		color: #e0e0e0;
+	}
+
+	.fc .fc-col-time-text {
+		color: #999999999;
+	}
+
+	.fc .fc-list-event-title {
+		color: #e0e0e0;
+	}
+
+	.fc .fc-popover {
+		background-color: #2a2a2a;
+		border-color: #444444;
+	}
+
+	.fc .fc-popover-header {
+		background-color: #333333333;
+		border-bottom-color: #444444;
+	}
+}
+
+/* Animation */
+@keyframes slideIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.fc .fc-event {
+	animation: slideIn 200ms ease-in-out;
+}
+
+/* Print Styles */
+@media print {
+	.fc .fc-toolbar {
+		display: none;
+	}
+
+	.fc .fc-daygrid-event {
+		page-break-inside: avoid;
+	}
+}

@@ -1,0 +1,364 @@
+/* ============================================
+   ChatPanel Leave Manager - Signup Page CSS
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #374151;
+}
+
+/* Signup Wrapper */
+.lm-signup-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.lm-signup-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+}
+
+/* Branding Section */
+.lm-signup-branding {
+  padding: 40px;
+}
+
+.lm-signup-logo {
+  margin-bottom: 30px;
+}
+
+.lm-signup-logo h1 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #4A5FFF;
+  margin: 0;
+  letter-spacing: -1px;
+}
+
+/* Form Container */
+.lm-signup-form-container {
+  background: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.lm-signup-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.lm-signup-form .form-group {
+  margin-bottom: 20px;
+}
+
+.lm-signup-form .form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 8px;
+}
+
+.lm-signup-form .form-label.required::after {
+  content: ' *';
+  color: #f44336;
+}
+
+.lm-signup-form .form-input,
+.lm-signup-form .form-select {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #374151;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.lm-signup-form .form-input:focus,
+.lm-signup-form .form-select:focus {
+  outline: none;
+  border-color: #4A5FFF;
+  box-shadow: 0 0 0 3px rgba(74, 95, 255, 0.1);
+}
+
+.lm-signup-form .form-input::placeholder {
+  color: #999999;
+}
+
+.lm-signup-form .form-hint {
+  font-size: 13px;
+  color: #6B7280;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* Password Strength Indicator */
+#password-strength {
+  margin-top: 8px;
+}
+
+#password-strength-bar {
+  height: 4px;
+  background-color: #f44336;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+#password-strength-text {
+  font-size: 12px;
+  color: #6B7280;
+  margin-top: 5px;
+}
+
+/* Error Messages */
+.lm-signup-error {
+  background-color: rgba(244, 67, 54, 0.08);
+  border: 1px solid rgba(244, 67, 54, 0.15);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  color: #f44336;
+}
+
+.lm-signup-error p {
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Success Message */
+.lm-signup-success {
+  text-align: center;
+}
+
+.lm-signup-success h2 {
+  color: #111827;
+  font-size: 24px;
+  margin-bottom: 15px;
+}
+
+.lm-signup-success p {
+  color: #6B7280;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.lm-btn-primary {
+  background-color: #4A5FFF;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.lm-btn-primary:hover {
+  background-color: #667EEA;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 95, 255, 0.3);
+}
+
+.lm-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Checkbox Styling */
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background-color: white;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #4A5FFF;
+  border-color: #4A5FFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='white' d='M13.78 4.22a.75.75 0 010 1.06l-7.25 7.25a.75.75 0 11-1.06-1.06l7.25-7.25a.75.75 0 011.06 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+}
+
+input[type="checkbox"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(74, 95, 255, 0.1);
+}
+
+/* Links */
+a {
+  color: #4A5FFF;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #667EEA;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .lm-signup-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .lm-signup-branding {
+    padding: 20px;
+  }
+
+  .lm-signup-form-container {
+    padding: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .lm-signup-wrapper {
+    padding: 15px;
+  }
+
+  .lm-signup-container {
+    gap: 30px;
+  }
+
+  .lm-signup-branding {
+    padding: 20px 0;
+  }
+
+  .lm-signup-logo h1 {
+    font-size: 36px;
+  }
+
+  .lm-signup-branding h2 {
+    font-size: 24px;
+  }
+
+  .lm-signup-form-container {
+    padding: 25px;
+  }
+
+  .lm-signup-form-container h2 {
+    font-size: 20px;
+  }
+
+  .lm-signup-form .form-group {
+    margin-bottom: 18px;
+  }
+
+  .lm-signup-form .form-input,
+  .lm-signup-form .form-select {
+    padding: 12px 14px;
+    font-size: 16px;
+  }
+
+  .lm-btn-primary {
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .lm-signup-wrapper {
+    padding: 10px;
+  }
+
+  .lm-signup-container {
+    gap: 20px;
+  }
+
+  .lm-signup-branding {
+    padding: 15px 0;
+    text-align: center;
+  }
+
+  .lm-signup-logo h1 {
+    font-size: 32px;
+  }
+
+  .lm-signup-branding h2 {
+    font-size: 20px;
+  }
+
+  .lm-signup-branding p {
+    font-size: 14px;
+  }
+
+  .lm-signup-form-container {
+    padding: 20px;
+  }
+
+  .lm-signup-form-container h2 {
+    font-size: 18px;
+  }
+
+  .lm-signup-form-container > p {
+    font-size: 13px;
+  }
+
+  .lm-signup-form .form-label {
+    font-size: 13px;
+  }
+
+  .lm-signup-form .form-input,
+  .lm-signup-form .form-select {
+    padding: 11px 12px;
+    font-size: 15px;
+  }
+
+  .lm-btn-primary {
+    padding: 11px 16px;
+    font-size: 14px;
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.lm-signup-form-container {
+  animation: fadeIn 0.3s ease;
+}
+
+.lm-signup-error {
+  animation: fadeIn 0.2s ease;
+}
+
+.lm-signup-success {
+  animation: fadeIn 0.3s ease;
+}

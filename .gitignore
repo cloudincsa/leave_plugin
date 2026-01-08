@@ -1,0 +1,46 @@
+# IDE and Editor files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer
+/vendor/
+composer.lock
+
+# Node modules
+/node_modules/
+
+# Build artifacts
+/dist/
+/build/
+
+# Logs
+*.log
+/logs/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Debug files
+debug-log.php
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+*~
+
+# PHPUnit
+.phpunit.result.cache
+phpunit.xml
+
+# Coverage reports
+/coverage/

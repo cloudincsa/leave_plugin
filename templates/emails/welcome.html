@@ -1,0 +1,171 @@
+<subject>Welcome to {{organization_name}} - Leave Management System</subject>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to {{organization_name}}</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 600;
+        }
+        .content {
+            padding: 40px;
+        }
+        .greeting {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .body-text {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        .button {
+            display: inline-block;
+            background-color: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 20px 0;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #5568d3;
+        }
+        .info-box {
+            background-color: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .info-box h3 {
+            margin-top: 0;
+            color: #667eea;
+            font-size: 14px;
+        }
+        .info-box ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .info-box li {
+            font-size: 13px;
+            margin: 5px 0;
+            color: #555;
+        }
+        .footer {
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+            font-size: 12px;
+            color: #999;
+        }
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        .divider {
+            height: 1px;
+            background-color: #eee;
+            margin: 20px 0;
+        }
+        .account-details {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+        .account-details p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome to {{organization_name}}</h1>
+        </div>
+        
+        <div class="content">
+            <div class="greeting">Hi {{full_name}},</div>
+            
+            <div class="body-text">
+                Your account has been successfully created in the Leave Management System. You can now submit leave requests, view your balance, and manage your time off efficiently.
+            </div>
+            
+            <div style="text-align: center;">
+                <a href="{{organization_website}}/leave-management/dashboard" class="button">Access Your Dashboard</a>
+            </div>
+            
+            <div class="divider"></div>
+            
+            <div class="account-details">
+                <p><strong>Your Account Details:</strong></p>
+                <p><strong>Email:</strong> {{email}}</p>
+                <p><strong>Department:</strong> {{department}}</p>
+                <p><strong>Position:</strong> {{position}}</p>
+                <p><strong>Organization:</strong> {{organization_name}}</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Getting Started:</h3>
+                <ul>
+                    <li>Log in to your account using your email and password</li>
+                    <li>Review your leave balance in the Dashboard</li>
+                    <li>Submit leave requests through the Leave Request form</li>
+                    <li>Track your requests in the Request History</li>
+                    <li>View the calendar to see team leave schedules</li>
+                </ul>
+            </div>
+            
+            <div class="body-text">
+                If you have any questions or need assistance, please contact your HR department at <a href="mailto:{{organization_email}}">{{organization_email}}</a>.
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p><strong>{{organization_name}}</strong></p>
+            <p style="margin: 10px 0 0 0;">
+                <a href="{{organization_website}}">Website</a> | 
+                <a href="mailto:{{organization_email}}">Contact Us</a>
+            </p>
+            <p style="margin: 10px 0 0 0; color: #ccc;">
+                © 2025 {{organization_name}}. All rights reserved.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

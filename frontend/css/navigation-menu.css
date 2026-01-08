@@ -1,0 +1,535 @@
+/**
+ * Leave Manager - Professional Persistent Navigation Menu
+ * 
+ * A modern, responsive navigation menu that persists across all frontend pages
+ * with professional styling, smooth animations, and accessibility features.
+ */
+
+/* ============================================
+   Navigation Container
+   ============================================ */
+
+.leave-manager-nav,
+.lm-navigation,
+.frontend-navigation {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 300ms ease-in-out;
+}
+
+.leave-manager-nav.scrolled,
+.lm-navigation.scrolled,
+.frontend-navigation.scrolled {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ============================================
+   Navigation Wrapper
+   ============================================ */
+
+.nav-wrapper,
+.lm-nav-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+}
+
+/* ============================================
+   Logo / Brand
+   ============================================ */
+
+.nav-brand,
+.lm-nav-brand,
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 700;
+  color: #4A5FFF;
+  transition: all 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-brand:hover,
+.lm-nav-brand:hover,
+.nav-logo:hover {
+  color: #3A4FE8;
+  transform: translateY(-2px);
+}
+
+.nav-brand-icon,
+.lm-nav-brand-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #4A5FFF 0%, #667EEA 100%);
+  border-radius: 8px;
+  color: white;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* ============================================
+   Navigation Menu
+   ============================================ */
+
+.nav-menu,
+.lm-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item,
+.lm-nav-item {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link,
+.lm-nav-link,
+.nav-item a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  color: #666666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-link:hover,
+.lm-nav-link:hover,
+.nav-item a:hover {
+  color: #4A5FFF;
+}
+
+.nav-link.active,
+.lm-nav-link.active,
+.nav-item a.active {
+  color: #4A5FFF;
+  font-weight: 600;
+}
+
+.nav-link::after,
+.lm-nav-link::after,
+.nav-item a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: #4A5FFF;
+  border-radius: 2px 2px 0 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 200ms ease-in-out;
+}
+
+.nav-link:hover::after,
+.lm-nav-link:hover::after,
+.nav-item a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav-link.active::after,
+.lm-nav-link.active::after,
+.nav-item a.active::after {
+  transform: scaleX(1);
+}
+
+/* ============================================
+   Dropdown Menu
+   ============================================ */
+
+.nav-dropdown,
+.lm-nav-dropdown {
+  position: relative;
+}
+
+.dropdown-toggle,
+.lm-dropdown-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown-toggle::after,
+.lm-dropdown-toggle::after {
+  content: '▼';
+  font-size: 10px;
+  transition: transform 200ms ease-in-out;
+}
+
+.nav-dropdown.open .dropdown-toggle::after,
+.lm-nav-dropdown.open .lm-dropdown-toggle::after {
+  transform: rotate(180deg);
+}
+
+.dropdown-menu,
+.lm-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 200ms ease-in-out;
+  z-index: 1001;
+  margin-top: 8px;
+}
+
+.nav-dropdown.open .dropdown-menu,
+.lm-nav-dropdown.open .lm-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-item,
+.lm-dropdown-item {
+  display: block;
+  padding: 12px 20px;
+  color: #666666;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 200ms ease-in-out;
+  border-left: 3px solid transparent;
+}
+
+.dropdown-item:hover,
+.lm-dropdown-item:hover {
+  background-color: #f5f5f5;
+  color: #4A5FFF;
+  border-left-color: #4A5FFF;
+  padding-left: 24px;
+}
+
+.dropdown-item.active,
+.lm-dropdown-item.active {
+  background-color: #f0f2ff;
+  color: #4A5FFF;
+  border-left-color: #4A5FFF;
+}
+
+/* ============================================
+   Navigation Actions
+   ============================================ */
+
+.nav-actions,
+.lm-nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-button,
+.lm-nav-button {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  white-space: nowrap;
+}
+
+.nav-button:hover,
+.lm-nav-button:hover {
+  background: #f5f5f5;
+  border-color: #d0d0d0;
+  color: #4A5FFF;
+}
+
+.nav-button.primary,
+.lm-nav-button.primary {
+  background: #4A5FFF;
+  border-color: #4A5FFF;
+  color: white;
+}
+
+.nav-button.primary:hover,
+.lm-nav-button.primary:hover {
+  background: #3A4FE8;
+  border-color: #3A4FE8;
+  box-shadow: 0 4px 12px rgba(74, 95, 255, 0.3);
+}
+
+/* ============================================
+   Mobile Menu Toggle
+   ============================================ */
+
+.nav-toggle,
+.lm-nav-toggle,
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1002;
+}
+
+.nav-toggle span,
+.lm-nav-toggle span,
+.mobile-menu-toggle span {
+  width: 24px;
+  height: 2px;
+  background: #333333;
+  border-radius: 2px;
+  transition: all 200ms ease-in-out;
+}
+
+.nav-toggle.active span:nth-child(1),
+.lm-nav-toggle.active span:nth-child(1),
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(10px, 10px);
+}
+
+.nav-toggle.active span:nth-child(2),
+.lm-nav-toggle.active span:nth-child(2),
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3),
+.lm-nav-toggle.active span:nth-child(3),
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(9px, -9px);
+}
+
+/* ============================================
+   Mobile Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .nav-wrapper,
+  .lm-nav-wrapper {
+    padding: 0 16px;
+    height: 60px;
+  }
+
+  .nav-toggle,
+  .lm-nav-toggle,
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu,
+  .lm-nav-menu {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    background: white;
+    border-bottom: 1px solid #e0e0e0;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease-in-out;
+  }
+
+  .nav-menu.active,
+  .lm-nav-menu.active {
+    max-height: 500px;
+  }
+
+  .nav-item,
+  .lm-nav-item {
+    width: 100%;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .nav-link,
+  .lm-nav-link,
+  .nav-item a {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 0;
+  }
+
+  .nav-link::after,
+  .lm-nav-link::after,
+  .nav-item a::after {
+    display: none;
+  }
+
+  .nav-link.active,
+  .lm-nav-link.active,
+  .nav-item a.active {
+    background: #f0f2ff;
+    border-left: 3px solid #4A5FFF;
+    padding-left: 20px;
+  }
+
+  .dropdown-menu,
+  .lm-dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    background: #f8f9ff;
+    border: none;
+    box-shadow: none;
+    margin-top: 0;
+    max-width: none;
+  }
+
+  .nav-dropdown.open .dropdown-menu,
+  .lm-nav-dropdown.open .lm-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+  }
+
+  .nav-dropdown.open .dropdown-menu.show,
+  .lm-nav-dropdown.open .lm-dropdown-menu.show {
+    max-height: 500px;
+  }
+
+  .dropdown-item,
+  .lm-dropdown-item {
+    padding: 12px 16px 12px 32px;
+    border-left: none;
+  }
+
+  .dropdown-item:hover,
+  .lm-dropdown-item:hover {
+    border-left: none;
+    padding-left: 32px;
+  }
+
+  .nav-actions,
+  .lm-nav-actions {
+    gap: 8px;
+  }
+
+  .nav-button,
+  .lm-nav-button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-brand,
+  .lm-nav-brand,
+  .nav-logo {
+    font-size: 16px;
+  }
+
+  .nav-brand-icon,
+  .lm-nav-brand-icon {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  .nav-button,
+  .lm-nav-button {
+    display: none;
+  }
+
+  .nav-button.primary,
+  .lm-nav-button.primary {
+    display: flex;
+  }
+}
+
+/* ============================================
+   Accessibility
+   ============================================ */
+
+.nav-link:focus,
+.lm-nav-link:focus,
+.nav-item a:focus,
+.dropdown-item:focus,
+.lm-dropdown-item:focus {
+  outline: 2px solid #4A5FFF;
+  outline-offset: 2px;
+}
+
+.nav-toggle:focus,
+.lm-nav-toggle:focus,
+.mobile-menu-toggle:focus {
+  outline: 2px solid #4A5FFF;
+  outline-offset: 2px;
+}
+
+/* ============================================
+   Animations
+   ============================================ */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.nav-menu.active {
+  animation: slideDown 300ms ease-in-out;
+}
+
+.dropdown-menu.show {
+  animation: slideDown 200ms ease-in-out;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .leave-manager-nav,
+  .lm-navigation,
+  .frontend-navigation {
+    display: none;
+  }
+}

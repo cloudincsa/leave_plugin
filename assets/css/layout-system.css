@@ -1,0 +1,473 @@
+/**
+ * Leave Manager - Unified Layout System
+ * 
+ * This file provides a consistent layout structure across all pages
+ * with unified containers, spacing, and visual hierarchy.
+ */
+
+/* ============================================
+   Page Container & Background
+   ============================================ */
+
+/* Main admin page wrapper */
+#wpbody-content,
+.leave-manager-page-wrapper,
+.lm-page-container {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Unified page container for all Leave Manager pages */
+.leave-manager-admin-container,
+.leave-manager-dashboard,
+.leave-manager-requests,
+.leave-manager-staff,
+.leave-manager-settings,
+.leave-manager-templates,
+.leave-manager-reports,
+.leave-manager-system,
+.leave-manager-help {
+  background-color: #f5f5f5;
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+}
+
+/* ============================================
+   Page Content Wrapper
+   ============================================ */
+
+.lm-page-content,
+.lm-content-wrapper,
+.leave-manager-content {
+  background-color: #f5f5f5;
+  padding: 32px 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   Page Header
+   ============================================ */
+
+.admin-page-header,
+.dashboard-header,
+.page-header,
+.lm-page-header,
+.professional-header {
+  background-color: transparent;
+  color: #333333;
+  padding: 30px 0;
+  margin-bottom: 30px;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: none;
+  display: block;
+}
+
+.admin-page-header h1,
+.dashboard-header h1,
+.page-header h1,
+.lm-page-header h1,
+.professional-header h1 {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #333333;
+  letter-spacing: -0.5px;
+}
+
+.admin-page-header .subtitle,
+.dashboard-header .subtitle,
+.page-header .subtitle,
+.lm-page-header .subtitle,
+.professional-header p {
+  margin: 5px 0 0 0 !important;
+  padding-left: 0 !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #666666 !important;
+  opacity: 1 !important;
+}
+
+/* ============================================
+   Tabs Navigation
+   ============================================ */
+
+.tabs-navigation,
+.admin-tabs,
+.lm-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 32px;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: transparent;
+  padding: 0;
+}
+
+.tab-button,
+.admin-tab,
+.lm-tab {
+  padding: 16px 24px;
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #666666;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  position: relative;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.tab-button:hover,
+.admin-tab:hover,
+.lm-tab:hover {
+  color: #4A5FFF;
+  border-bottom-color: transparent;
+}
+
+.tab-button.active,
+.admin-tab.active,
+.lm-tab.active {
+  color: #4A5FFF;
+  border-bottom-color: #4A5FFF;
+  border-bottom-width: 3px;
+}
+
+/* ============================================
+   Main Content Grid
+   ============================================ */
+
+.lm-content-grid,
+.lm-main-grid,
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.lm-main-content,
+.lm-primary-content,
+.main-content {
+  grid-column: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.lm-sidebar,
+.lm-secondary-content,
+.sidebar {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================
+   Stat Cards Row
+   ============================================ */
+
+.stat-cards-row,
+.stats-row,
+.lm-stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+  padding: 0;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.stat-card,
+.stat-item,
+.lm-stat-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #4A5FFF;
+  transition: all 200ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.stat-card:hover,
+.stat-item:hover,
+.lm-stat-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+  border-color: #d0d0d0;
+}
+
+.stat-label,
+.stat-title,
+.lm-stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.stat-value,
+.stat-number,
+.lm-stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: #4A5FFF;
+  margin: 0;
+  line-height: 1;
+}
+
+.stat-description,
+.stat-subtitle,
+.lm-stat-description {
+  font-size: 13px;
+  font-weight: 400;
+  color: #666666;
+  margin: 0;
+}
+
+/* ============================================
+   Content Cards
+   ============================================ */
+
+.card,
+.admin-card,
+.lm-card,
+.content-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #4A5FFF;
+  transition: all 200ms ease-in-out;
+}
+
+.card:hover,
+.admin-card:hover,
+.lm-card:hover,
+.content-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  border-color: #d0d0d0;
+}
+
+.card-header,
+.lm-card-header {
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.card-header h2,
+.card-header h3,
+.lm-card-header h2,
+.lm-card-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.card-body,
+.lm-card-body {
+  margin-bottom: 16px;
+}
+
+.card-footer,
+.lm-card-footer {
+  padding-top: 16px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* ============================================
+   Form Cards
+   ============================================ */
+
+.form-card,
+.form-section,
+.lm-form-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e0e0e0;
+  border-left: 4px solid #4A5FFF;
+  margin-bottom: 24px;
+}
+
+.form-card h3,
+.form-section h3,
+.lm-form-card h3 {
+  margin: 0 0 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333333;
+}
+
+/* ============================================
+   Two-Column Layout
+   ============================================ */
+
+.two-column-layout,
+.lm-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.column,
+.lm-column {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ============================================
+   Responsive Layout
+   ============================================ */
+
+@media (max-width: 1024px) {
+  .lm-content-grid,
+  .lm-main-grid,
+  .content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lm-sidebar,
+  .lm-secondary-content,
+  .sidebar {
+    grid-column: 1;
+  }
+
+  .two-column-layout,
+  .lm-two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-cards-row,
+  .stats-row,
+  .lm-stats-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .lm-page-content,
+  .lm-content-wrapper,
+  .leave-manager-content {
+    padding: 24px 16px;
+  }
+
+  .admin-page-header h1,
+  .dashboard-header h1,
+  .page-header h1,
+  .lm-page-header h1,
+  .professional-header h1 {
+    font-size: 24px;
+  }
+
+  .stat-cards-row,
+  .stats-row,
+  .lm-stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tabs-navigation,
+  .admin-tabs,
+  .lm-tabs {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .tab-button,
+  .admin-tab,
+  .lm-tab {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+
+  .card,
+  .admin-card,
+  .lm-card,
+  .content-card,
+  .form-card,
+  .form-section,
+  .lm-form-card {
+    padding: 16px;
+  }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.lm-full-width {
+  grid-column: 1 / -1;
+}
+
+.lm-no-border {
+  border: none;
+  border-left: none;
+}
+
+.lm-no-shadow {
+  box-shadow: none;
+}
+
+.lm-compact {
+  padding: 16px;
+}
+
+.lm-spacious {
+  padding: 32px;
+}
+
+.lm-gap-small {
+  gap: 12px;
+}
+
+.lm-gap-medium {
+  gap: 24px;
+}
+
+.lm-gap-large {
+  gap: 32px;
+}
+
+/* ============================================
+   Print Styles
+   ============================================ */
+
+@media print {
+  .lm-page-content,
+  .lm-content-wrapper,
+  .leave-manager-content {
+    background-color: #ffffff;
+    padding: 0;
+  }
+
+  .card,
+  .admin-card,
+  .lm-card,
+  .content-card {
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+}

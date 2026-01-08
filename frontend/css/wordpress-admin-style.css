@@ -1,0 +1,792 @@
+/**
+ * WordPress Admin UI Style for Leave Manager Plugin
+ * 
+ * This CSS file applies WordPress admin dashboard styling to the
+ * Leave Manager frontend pages for a consistent, professional look.
+ * 
+ * @package Leave_Manager
+ * @version 1.0.0
+ */
+
+/* ==========================================================================
+   CSS Variables - WordPress Admin Color Scheme
+   ========================================================================== */
+
+:root {
+    /* Primary Colors */
+    --wp-admin-primary: #0073aa;
+    --wp-admin-primary-hover: #006799;
+    --wp-admin-primary-dark: #005177;
+    
+    /* Background Colors */
+    --wp-admin-bg: #f1f1f1;
+    --wp-admin-card-bg: #ffffff;
+    --wp-admin-sidebar-bg: #23282d;
+    
+    /* Text Colors */
+    --wp-admin-text: #23282d;
+    --wp-admin-text-secondary: #666666;
+    --wp-admin-text-muted: #999999;
+    
+    /* Border Colors */
+    --wp-admin-border: #e5e5e5;
+    --wp-admin-border-dark: #dcdcde;
+    --wp-admin-card-border-left: #0073aa;
+    
+    /* Status Colors */
+    --wp-admin-success: #46b450;
+    --wp-admin-success-bg: #ecf7ed;
+    --wp-admin-warning: #ffb900;
+    --wp-admin-warning-bg: #fff8e5;
+    --wp-admin-error: #dc3232;
+    --wp-admin-error-bg: #fbeaea;
+    --wp-admin-info: #00a0d2;
+    --wp-admin-info-bg: #e5f5fa;
+    
+    /* Spacing */
+    --wp-admin-spacing-xs: 4px;
+    --wp-admin-spacing-sm: 8px;
+    --wp-admin-spacing-md: 16px;
+    --wp-admin-spacing-lg: 24px;
+    --wp-admin-spacing-xl: 32px;
+    
+    /* Typography */
+    --wp-admin-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    --wp-admin-font-size-sm: 12px;
+    --wp-admin-font-size-base: 13px;
+    --wp-admin-font-size-md: 14px;
+    --wp-admin-font-size-lg: 16px;
+    --wp-admin-font-size-xl: 18px;
+    --wp-admin-font-size-2xl: 23px;
+    
+    /* Border Radius */
+    --wp-admin-radius-sm: 3px;
+    --wp-admin-radius-md: 4px;
+    --wp-admin-radius-lg: 6px;
+    
+    /* Shadows */
+    --wp-admin-shadow-sm: 0 1px 1px rgba(0, 0, 0, 0.04);
+    --wp-admin-shadow-md: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --wp-admin-shadow-lg: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
+
+.lm-wp-admin-wrapper {
+    font-family: var(--wp-admin-font-family);
+    font-size: var(--wp-admin-font-size-base);
+    line-height: 1.4;
+    color: var(--wp-admin-text);
+    background-color: var(--wp-admin-bg);
+    min-height: 100vh;
+    padding: var(--wp-admin-spacing-lg);
+}
+
+.lm-wp-admin-wrapper * {
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Page Header
+   ========================================================================== */
+
+.lm-page-header {
+    margin-bottom: var(--wp-admin-spacing-lg);
+}
+
+.lm-page-title {
+    font-size: var(--wp-admin-font-size-2xl);
+    font-weight: 400;
+    color: var(--wp-admin-text);
+    margin: 0 0 var(--wp-admin-spacing-xs) 0;
+    padding: 0;
+    line-height: 1.3;
+}
+
+.lm-page-subtitle {
+    font-size: var(--wp-admin-font-size-md);
+    color: var(--wp-admin-text-secondary);
+    margin: 0;
+}
+
+/* ==========================================================================
+   Cards - WordPress Postbox Style
+   ========================================================================== */
+
+.lm-card {
+    background: var(--wp-admin-card-bg);
+    border: 1px solid var(--wp-admin-border-dark);
+    border-left: 4px solid var(--wp-admin-card-border-left);
+    border-radius: var(--wp-admin-radius-sm);
+    margin-bottom: var(--wp-admin-spacing-lg);
+    box-shadow: var(--wp-admin-shadow-sm);
+}
+
+.lm-card-header {
+    padding: var(--wp-admin-spacing-md);
+    border-bottom: 1px solid var(--wp-admin-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lm-card-title {
+    font-size: var(--wp-admin-font-size-md);
+    font-weight: 600;
+    color: var(--wp-admin-text);
+    margin: 0;
+}
+
+.lm-card-body {
+    padding: var(--wp-admin-spacing-md);
+}
+
+.lm-card-footer {
+    padding: var(--wp-admin-spacing-md);
+    border-top: 1px solid var(--wp-admin-border);
+    background: #f9f9f9;
+}
+
+/* Card Variants */
+.lm-card--success {
+    border-left-color: var(--wp-admin-success);
+}
+
+.lm-card--warning {
+    border-left-color: var(--wp-admin-warning);
+}
+
+.lm-card--error {
+    border-left-color: var(--wp-admin-error);
+}
+
+.lm-card--info {
+    border-left-color: var(--wp-admin-info);
+}
+
+/* ==========================================================================
+   Metric Cards (KPI Cards)
+   ========================================================================== */
+
+.lm-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--wp-admin-spacing-md);
+    margin-bottom: var(--wp-admin-spacing-lg);
+}
+
+.lm-metric-card {
+    background: var(--wp-admin-card-bg);
+    border: 1px solid var(--wp-admin-border-dark);
+    border-left: 4px solid var(--wp-admin-card-border-left);
+    border-radius: var(--wp-admin-radius-sm);
+    padding: var(--wp-admin-spacing-md);
+    box-shadow: var(--wp-admin-shadow-sm);
+}
+
+.lm-metric-label {
+    font-size: var(--wp-admin-font-size-sm);
+    font-weight: 600;
+    color: var(--wp-admin-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: var(--wp-admin-spacing-xs);
+}
+
+.lm-metric-value {
+    font-size: 28px;
+    font-weight: 400;
+    color: var(--wp-admin-primary);
+    line-height: 1.2;
+}
+
+.lm-metric-subtext {
+    font-size: var(--wp-admin-font-size-sm);
+    color: var(--wp-admin-text-muted);
+    margin-top: var(--wp-admin-spacing-xs);
+}
+
+/* Metric Card Variants */
+.lm-metric-card--success .lm-metric-value {
+    color: var(--wp-admin-success);
+}
+
+.lm-metric-card--warning .lm-metric-value {
+    color: var(--wp-admin-warning);
+}
+
+.lm-metric-card--error .lm-metric-value {
+    color: var(--wp-admin-error);
+}
+
+/* ==========================================================================
+   Buttons - WordPress Button Styles
+   ========================================================================== */
+
+.lm-button {
+    display: inline-block;
+    font-family: var(--wp-admin-font-family);
+    font-size: var(--wp-admin-font-size-base);
+    font-weight: 400;
+    line-height: 2.15384615;
+    min-height: 30px;
+    padding: 0 10px;
+    cursor: pointer;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--wp-admin-radius-sm);
+    white-space: nowrap;
+    text-decoration: none;
+    transition: background 0.1s ease-in-out, border-color 0.1s ease-in-out;
+}
+
+.lm-button:focus {
+    outline: 2px solid var(--wp-admin-primary);
+    outline-offset: 1px;
+}
+
+/* Primary Button */
+.lm-button--primary {
+    background: var(--wp-admin-primary);
+    border-color: var(--wp-admin-primary);
+    color: #ffffff;
+}
+
+.lm-button--primary:hover {
+    background: var(--wp-admin-primary-hover);
+    border-color: var(--wp-admin-primary-hover);
+    color: #ffffff;
+}
+
+.lm-button--primary:active {
+    background: var(--wp-admin-primary-dark);
+    border-color: var(--wp-admin-primary-dark);
+}
+
+/* Secondary Button */
+.lm-button--secondary {
+    background: #f7f7f7;
+    border-color: #cccccc;
+    color: var(--wp-admin-text);
+}
+
+.lm-button--secondary:hover {
+    background: #fafafa;
+    border-color: #999999;
+    color: var(--wp-admin-primary);
+}
+
+/* Danger Button */
+.lm-button--danger {
+    background: var(--wp-admin-error);
+    border-color: var(--wp-admin-error);
+    color: #ffffff;
+}
+
+.lm-button--danger:hover {
+    background: #be2c2c;
+    border-color: #be2c2c;
+}
+
+/* Success Button */
+.lm-button--success {
+    background: var(--wp-admin-success);
+    border-color: var(--wp-admin-success);
+    color: #ffffff;
+}
+
+.lm-button--success:hover {
+    background: #3da344;
+    border-color: #3da344;
+}
+
+/* Link Button */
+.lm-button--link {
+    background: transparent;
+    border-color: transparent;
+    color: var(--wp-admin-primary);
+    padding: 0;
+    min-height: auto;
+    line-height: inherit;
+}
+
+.lm-button--link:hover {
+    color: var(--wp-admin-primary-hover);
+    text-decoration: underline;
+}
+
+/* Button Sizes */
+.lm-button--small {
+    font-size: var(--wp-admin-font-size-sm);
+    min-height: 26px;
+    line-height: 2.18181818;
+    padding: 0 8px;
+}
+
+.lm-button--large {
+    font-size: var(--wp-admin-font-size-md);
+    min-height: 36px;
+    line-height: 2.28571429;
+    padding: 0 14px;
+}
+
+/* ==========================================================================
+   Forms - WordPress Form Styles
+   ========================================================================== */
+
+.lm-form-group {
+    margin-bottom: var(--wp-admin-spacing-md);
+}
+
+.lm-form-label {
+    display: block;
+    font-size: var(--wp-admin-font-size-md);
+    font-weight: 600;
+    color: var(--wp-admin-text);
+    margin-bottom: var(--wp-admin-spacing-xs);
+}
+
+.lm-form-label--required::after {
+    content: " *";
+    color: var(--wp-admin-error);
+}
+
+.lm-form-input,
+.lm-form-select,
+.lm-form-textarea {
+    font-family: var(--wp-admin-font-family);
+    font-size: var(--wp-admin-font-size-md);
+    line-height: 1.4;
+    color: var(--wp-admin-text);
+    background: var(--wp-admin-card-bg);
+    border: 1px solid #8c8f94;
+    border-radius: var(--wp-admin-radius-md);
+    padding: 0 8px;
+    min-height: 30px;
+    width: 100%;
+    max-width: 400px;
+    transition: border-color 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+}
+
+.lm-form-input:focus,
+.lm-form-select:focus,
+.lm-form-textarea:focus {
+    border-color: var(--wp-admin-primary);
+    box-shadow: 0 0 0 1px var(--wp-admin-primary);
+    outline: none;
+}
+
+.lm-form-input--error,
+.lm-form-select--error,
+.lm-form-textarea--error {
+    border-color: var(--wp-admin-error);
+}
+
+.lm-form-textarea {
+    min-height: 100px;
+    padding: 8px;
+    resize: vertical;
+}
+
+.lm-form-hint {
+    font-size: var(--wp-admin-font-size-sm);
+    color: var(--wp-admin-text-secondary);
+    margin-top: var(--wp-admin-spacing-xs);
+}
+
+.lm-form-error {
+    font-size: var(--wp-admin-font-size-sm);
+    color: var(--wp-admin-error);
+    margin-top: var(--wp-admin-spacing-xs);
+}
+
+/* ==========================================================================
+   Tables - WordPress Table Styles
+   ========================================================================== */
+
+.lm-table-wrapper {
+    overflow-x: auto;
+}
+
+.lm-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background: var(--wp-admin-card-bg);
+    border: 1px solid var(--wp-admin-border-dark);
+}
+
+.lm-table th,
+.lm-table td {
+    padding: 8px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--wp-admin-border);
+}
+
+.lm-table th {
+    font-size: var(--wp-admin-font-size-md);
+    font-weight: 600;
+    color: var(--wp-admin-text);
+    background: #f9f9f9;
+    border-bottom: 1px solid var(--wp-admin-border-dark);
+}
+
+.lm-table tbody tr:hover {
+    background: #f9f9f9;
+}
+
+.lm-table tbody tr:nth-child(even) {
+    background: #fcfcfc;
+}
+
+.lm-table tbody tr:nth-child(even):hover {
+    background: #f5f5f5;
+}
+
+/* ==========================================================================
+   Alerts / Notices - WordPress Notice Styles
+   ========================================================================== */
+
+.lm-notice {
+    padding: var(--wp-admin-spacing-md);
+    margin-bottom: var(--wp-admin-spacing-md);
+    border-left: 4px solid var(--wp-admin-primary);
+    background: var(--wp-admin-card-bg);
+    box-shadow: var(--wp-admin-shadow-sm);
+}
+
+.lm-notice--success {
+    border-left-color: var(--wp-admin-success);
+    background: var(--wp-admin-success-bg);
+}
+
+.lm-notice--warning {
+    border-left-color: var(--wp-admin-warning);
+    background: var(--wp-admin-warning-bg);
+}
+
+.lm-notice--error {
+    border-left-color: var(--wp-admin-error);
+    background: var(--wp-admin-error-bg);
+}
+
+.lm-notice--info {
+    border-left-color: var(--wp-admin-info);
+    background: var(--wp-admin-info-bg);
+}
+
+.lm-notice p {
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================================
+   Status Badges
+   ========================================================================== */
+
+.lm-badge {
+    display: inline-block;
+    font-size: var(--wp-admin-font-size-sm);
+    font-weight: 600;
+    line-height: 1;
+    padding: 4px 8px;
+    border-radius: var(--wp-admin-radius-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.lm-badge--pending {
+    background: var(--wp-admin-warning-bg);
+    color: #996800;
+}
+
+.lm-badge--approved {
+    background: var(--wp-admin-success-bg);
+    color: #2e7d32;
+}
+
+.lm-badge--rejected {
+    background: var(--wp-admin-error-bg);
+    color: #c62828;
+}
+
+.lm-badge--cancelled {
+    background: #f0f0f0;
+    color: #666666;
+}
+
+/* ==========================================================================
+   Grid Layout
+   ========================================================================== */
+
+.lm-grid {
+    display: grid;
+    gap: var(--wp-admin-spacing-md);
+}
+
+.lm-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.lm-grid--3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.lm-grid--4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.lm-grid--sidebar {
+    grid-template-columns: 2fr 1fr;
+}
+
+/* ==========================================================================
+   Quick Actions Panel
+   ========================================================================== */
+
+.lm-quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--wp-admin-spacing-sm);
+}
+
+.lm-quick-actions .lm-button {
+    width: 100%;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Empty State
+   ========================================================================== */
+
+.lm-empty-state {
+    text-align: center;
+    padding: var(--wp-admin-spacing-xl);
+    color: var(--wp-admin-text-secondary);
+}
+
+.lm-empty-state-icon {
+    font-size: 48px;
+    margin-bottom: var(--wp-admin-spacing-md);
+    opacity: 0.5;
+}
+
+.lm-empty-state-title {
+    font-size: var(--wp-admin-font-size-lg);
+    font-weight: 600;
+    color: var(--wp-admin-text);
+    margin-bottom: var(--wp-admin-spacing-xs);
+}
+
+.lm-empty-state-text {
+    font-size: var(--wp-admin-font-size-md);
+    margin-bottom: var(--wp-admin-spacing-md);
+}
+
+/* ==========================================================================
+   Loading Spinner
+   ========================================================================== */
+
+.lm-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--wp-admin-border);
+    border-top-color: var(--wp-admin-primary);
+    border-radius: 50%;
+    animation: lm-spin 0.8s linear infinite;
+}
+
+@keyframes lm-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.lm-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--wp-admin-spacing-xl);
+    color: var(--wp-admin-text-secondary);
+}
+
+.lm-loading .lm-spinner {
+    margin-right: var(--wp-admin-spacing-sm);
+}
+
+/* ==========================================================================
+   Calendar Styles
+   ========================================================================== */
+
+.lm-calendar {
+    background: var(--wp-admin-card-bg);
+    border: 1px solid var(--wp-admin-border-dark);
+    border-radius: var(--wp-admin-radius-sm);
+}
+
+.lm-calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--wp-admin-spacing-md);
+    border-bottom: 1px solid var(--wp-admin-border);
+    background: #f9f9f9;
+}
+
+.lm-calendar-title {
+    font-size: var(--wp-admin-font-size-lg);
+    font-weight: 600;
+    color: var(--wp-admin-text);
+}
+
+.lm-calendar-nav {
+    display: flex;
+    gap: var(--wp-admin-spacing-xs);
+}
+
+.lm-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.lm-calendar-day-header {
+    padding: var(--wp-admin-spacing-sm);
+    text-align: center;
+    font-weight: 600;
+    font-size: var(--wp-admin-font-size-sm);
+    color: var(--wp-admin-text-secondary);
+    background: #f9f9f9;
+    border-bottom: 1px solid var(--wp-admin-border);
+}
+
+.lm-calendar-day {
+    min-height: 80px;
+    padding: var(--wp-admin-spacing-xs);
+    border-right: 1px solid var(--wp-admin-border);
+    border-bottom: 1px solid var(--wp-admin-border);
+}
+
+.lm-calendar-day:nth-child(7n) {
+    border-right: none;
+}
+
+.lm-calendar-day-number {
+    font-size: var(--wp-admin-font-size-sm);
+    font-weight: 600;
+    color: var(--wp-admin-text);
+    margin-bottom: var(--wp-admin-spacing-xs);
+}
+
+.lm-calendar-day--other-month .lm-calendar-day-number {
+    color: var(--wp-admin-text-muted);
+}
+
+.lm-calendar-day--today {
+    background: var(--wp-admin-info-bg);
+}
+
+.lm-calendar-event {
+    font-size: var(--wp-admin-font-size-sm);
+    padding: 2px 4px;
+    margin-bottom: 2px;
+    border-radius: var(--wp-admin-radius-sm);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.lm-calendar-event--leave {
+    background: var(--wp-admin-primary);
+    color: #ffffff;
+}
+
+.lm-calendar-event--holiday {
+    background: var(--wp-admin-warning);
+    color: #333333;
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media screen and (max-width: 782px) {
+    .lm-wp-admin-wrapper {
+        padding: var(--wp-admin-spacing-md);
+    }
+    
+    .lm-grid--2,
+    .lm-grid--3,
+    .lm-grid--4,
+    .lm-grid--sidebar {
+        grid-template-columns: 1fr;
+    }
+    
+    .lm-metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .lm-table {
+        font-size: var(--wp-admin-font-size-sm);
+    }
+    
+    .lm-table th,
+    .lm-table td {
+        padding: 6px 8px;
+    }
+    
+    .lm-form-input,
+    .lm-form-select,
+    .lm-form-textarea {
+        max-width: 100%;
+    }
+    
+    .lm-button {
+        min-height: 44px;
+        padding: 0 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .lm-metrics-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .lm-card-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--wp-admin-spacing-sm);
+    }
+    
+    .lm-calendar-day {
+        min-height: 60px;
+    }
+    
+    .lm-calendar-day-header {
+        font-size: 10px;
+    }
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+    .lm-wp-admin-wrapper {
+        background: white;
+        padding: 0;
+    }
+    
+    .lm-button,
+    .lm-quick-actions {
+        display: none;
+    }
+    
+    .lm-card {
+        border: 1px solid #000;
+        box-shadow: none;
+        page-break-inside: avoid;
+    }
+}
